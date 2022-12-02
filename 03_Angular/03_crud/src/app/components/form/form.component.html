@@ -1,0 +1,53 @@
+<h5>Formulario de registro</h5>
+
+<form class="mt-3" (ngSubmit)="getDataForm()" [formGroup]="formUsers">
+
+    <div class="mb-3">
+        <label for="name" class="form-label">Nombre de usuario</label>
+        <input type="text" class="form-control" id="name" aria-describedby="emailHelp" formControlName="name"
+            placeholder="nombre...">
+        <span class="form-text text-danger" *ngIf="validField('name')">Campo requerido</span>
+    </div>
+
+    <div class="mb-3">
+        <label for="password" class="form-label">Contraseña</label>
+        <input type="password" class="form-control" id="password" formControlName="password"
+            placeholder="contraseña...">
+        <span class="form-text text-danger" *ngIf="validField('password')">La contraseña debe ser mayor de 6
+            caracteres.</span>
+    </div>
+
+    <div class="mb-3">
+        <label for="repeatPassword" class="form-label">Confirma la contraseña</label>
+        <input type="password" class="form-control" id="repeatPassword" formControlName="repeatPassword"
+            placeholder="contraseña...">
+        <span class="form-text text-danger" *ngIf="validField('repeatPassword')">Las contraseñas no coinciden</span>
+    </div>
+
+    <div class="mb-3">
+        <label for="email" class="form-label">Correo</label>
+        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" formControlName="email"
+            placeholder="email...">
+        <span class="form-text text-danger" *ngIf="validField('email')">{{emailError}}</span>
+    </div>
+
+    <div class="mb-3 form-check">
+        <label class="form-check-label" for="check">Enviarme ofertas promocionales</label>
+        <input type="checkbox" class="form-check-input" id="check" formControlName="offers">
+    </div>
+
+    <label for="country" class="form-label">País</label>
+    <select class="mb-3 form-select" aria-label="Default select example" formControlName="country">
+        <option selected>Selecciona País</option>
+        <option *ngFor="let country of countries">{{country.name.official}}</option>
+    </select>
+
+    <div class="mb-3">
+        <label for="city" class="form-label">Ciudad</label>
+        <input type="text" class="form-control" id="city" aria-describedby="emailHelp" formControlName="city"
+            placeholder="ciudad...">
+    </div>
+
+    <button type="submit" class="btn btn-primary">{{userForUpdate ? 'Actualizar' : 'Crear'}}</button>
+
+</form>

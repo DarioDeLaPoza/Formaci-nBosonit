@@ -1,0 +1,14 @@
+<h1>Buscador de Universidades</h1>
+<div class="input-group mb-2">
+    <button class="btn btn-lg text-white px-4 py-3 shadow-none" type="button"
+        [ngClass]="{'btn-primary': espana === false, 'btn-success': espana === true}"
+        (click)="getUnis('spain')">España</button>
+    <button class="btn btn-lg text-white px-4 py-3 shadow-none" type="button"
+        [ngClass]="{'btn-primary': reinoUnido === false, 'btn-success': reinoUnido === true}"
+        (click)="getUnis('united kingdom')">Reino Unido</button>
+    <button class="btn btn-lg text-white px-4 py-3 shadow-none" type="button"
+        [ngClass]="{'btn-primary': portugal === false, 'btn-success': portugal === true}"
+        (click)="getUnis('portugal')">Portugal</button>
+    <input type="text" class="form-control-small" (input)="recibirTexto($event)">
+</div>
+<p *ngFor="let uni of unis">{{uni.name}}</p>

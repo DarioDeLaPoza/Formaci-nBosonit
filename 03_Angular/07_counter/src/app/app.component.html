@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>{{counter}}</h1>
+  <span>Setup</span>
+  <div class="mb-2">
+    <button class="btn btn-primary" (click)="accumulate()">start</button>
+    <button class="btn btn-primary" (click)="stop()">pause</button>
+    <button class="btn btn-primary" (click)="reset()">reset</button>
+  </div>
+  <span>Count</span>
+  <div class="mb-2">
+    <button class="btn btn-primary" (click)="activeCount()">count up</button>
+    <button class="btn btn-primary" (click)="activeCountDown()">count down</button>
+  </div>
+  <span>Step</span>
+  <div>
+    <input type="number" name="step" [value]="step" [(ngModel)]="step" />
+  </div>
+</div>

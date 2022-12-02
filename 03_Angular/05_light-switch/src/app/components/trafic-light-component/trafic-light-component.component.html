@@ -1,0 +1,5 @@
+<div class="trafficLight mt-3">
+    <div class="light" [ngClass]="{'red': color === 'rojo' && turnOn}"></div>
+    <div class="light" [ngClass]="{'yellow': color === 'amarillo' && turnOn}"></div>
+    <div class="light" [ngClass]="{'green': color === 'verde' && turnOn}"></div>
+</div>

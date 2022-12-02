@@ -1,0 +1,13 @@
+<div class="container border border-4 border-primary p-3 mt-3">
+    <h4>CHILD</h4>
+    <div class="mt-2 text-center">
+        <div>
+            <span>Message: {{message}}</span>
+        </div>
+        <div class="mt-3">
+            <button class="btn btn-primary mx-1" (click)="useServiceChild()">Use Service</button>
+            <button class="btn btn-primary mx-1" (click)="emitMessage()">Use Output Event</button>
+            <button class="btn btn-primary mx-1" (click)="showMessageInParentObservable()">Use Observable</button>
+        </div>
+    </div>
+</div>

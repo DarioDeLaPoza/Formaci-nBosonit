@@ -1,0 +1,8 @@
+<div class="row mt-3 mx-3">
+  <div class="col-2">
+    <app-form [userForUpdate]="userForUpdate"></app-form>
+  </div>
+  <div class="col-10">
+    <app-users-list (userForUpdate)="sendUserForUpdate($event)"></app-users-list>
+  </div>
+</div>

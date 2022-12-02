@@ -1,0 +1,24 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Nombre de usuario</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Suscrito</th>
+            <th scope="col">País</th>
+            <th scope="col">Ciudad</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users; let i = index">
+            <td>{{user.name | titlecase}}</td>
+            <td>{{user.email | titlecase}}</td>
+            <td><i class="fa-solid fa-check" *ngIf="user.offers"></i></td>
+            <td>{{user.country | titlecase}}</td>
+            <td>{{user.city | titlecase}}</td>
+            <td><i class="fa-solid fa-pencil mx-2" (click)="updateUser(user.id!)"></i>
+                <i class="fa-solid fa-trash" (click)="deleteUser(user.id!)"></i>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,8 @@
+<div class="container">
+  <h4 class="my-4">Hello Word</h4>
+  <input class="form-control mb-3" type="text" value="Tareas">
+  <button class="btn btn-primary mb-5" (click)="hide()">{{textButton ? 'Esconder' : 'Enseñar' }}</button>
+  <div class="border border-dark" *ngIf="textButton">
+    <img class="w-100" src="./../assets/images/CabeceraLinkedIn.jpg" alt="Cabecera Bosonit">
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="mt-4">
+    <h1><u>Controlador</u></h1>
+    <div>
+        <select class="form-select-sm" (change)="setColor($event)">
+            <option value="rojo">rojo</option>
+            <option value="amarillo">amarillo</option>
+            <option value="verde">verde</option>
+        </select>
+        <input class="ms-4" type="checkbox" (change)="prueba($event)">
+        <span [ngClass]="{ 'bold': setBold}">Encendido </span> <span>/ </span>
+        <span [ngClass]="{ 'bold': !setBold}">Apagado</span>
+    </div>
+</div>
