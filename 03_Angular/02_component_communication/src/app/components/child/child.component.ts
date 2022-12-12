@@ -1,6 +1,6 @@
 import { ThisReceiver } from '@angular/compiler';
 import { Component, EventEmitter, Input, Output, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { Service1Service } from 'src/app/services/service1.service';
 
 @Component({
@@ -11,23 +11,18 @@ import { Service1Service } from 'src/app/services/service1.service';
 export class ChildComponent implements OnInit, OnDestroy {
 
   @Input() message = new String('');
+  @Input() messageSubject!: Observable<boolean>;
 
   @Output() messageOutput: EventEmitter<string> = new EventEmitter();
 
   messageSubscription!: Subscription;
 
-
   ngOnInit() {
     this._service1.messageServiceChild = this;
-
 
     this.messageSubscription = this._service1.messageForEmit$.subscribe(texto => {
       this.message = texto;
     });
-  };
-
-  ngOnDestroy(): void {
-    this.messageSubscription.unsubscribe();
   };
 
   constructor(
@@ -44,5 +39,9 @@ export class ChildComponent implements OnInit, OnDestroy {
 
   showMessageInParentObservable() { //Observable
     this._service1.messageForEmit2$.emit('CHILD USING SUBJECT')
+  };
+
+  ngOnDestroy(): void {
+    this.messageSubscription.unsubscribe();
   };
 };

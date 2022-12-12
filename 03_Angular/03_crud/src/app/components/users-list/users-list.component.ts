@@ -13,20 +13,19 @@ export class UsersListComponent implements OnInit {
   @Output() userForUpdate: EventEmitter<User> = new EventEmitter();
 
   constructor(
-    private UsersService: UsersService
+    private _usersService: UsersService
   ) { }
 
   ngOnInit(): void {
-    this.users = this.UsersService.getAllUsers();
+    this.users = this._usersService.getAllUsers();
   };
 
   deleteUser(id: number): void {
-    this.users = this.UsersService.delete(id);
+    this.users = this._usersService.delete(id);
   };
 
   updateUser(id: number) {
-    const response = this.UsersService.getUserById(id);
+    const response = this._usersService.getUserById(id);
     this.userForUpdate.emit(response);
-    console.log(response);
   };
 };

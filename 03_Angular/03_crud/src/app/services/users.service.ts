@@ -18,8 +18,8 @@ export class UsersService {
     return this.arrUsers;
   };
 
-  getUserById(id: number): User {
-    return this.arrUsers.filter(user => user.id === id)[0];
+  getUserById(id: number): User | undefined {
+    return this.arrUsers.find(user => user.id === id);
   };
 
   insert(newUser: User): void {

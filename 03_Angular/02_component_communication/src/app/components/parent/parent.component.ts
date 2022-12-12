@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import { Service1Service } from 'src/app/services/service1.service';
 
 @Component({
@@ -8,6 +8,8 @@ import { Service1Service } from 'src/app/services/service1.service';
   styleUrls: ['./parent.component.css']
 })
 export class ParentComponent implements OnInit, OnDestroy {
+
+  messageSubject: Subject<boolean> = new Subject<boolean>();
 
   message: String = new String('');
   message2: string = '';
@@ -43,6 +45,7 @@ export class ParentComponent implements OnInit, OnDestroy {
   };
 
   showMessageInChildObservable() { // Observable
+    this.messageSubject.next(false);
     this._service1.messageForEmit$.emit('PARENT USING SUBJECT')
   };
 };
