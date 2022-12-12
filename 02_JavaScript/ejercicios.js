@@ -112,37 +112,21 @@ fromBytesToFormattedSizeUnits = (bytes, numDig = 3) => {
     let bytes_str = Math.trunc(bytes).toString().length;
 
     switch (true) {
-        case (bytes_str === 1):
-        case (bytes_str === 2):
-        case (bytes_str === 3):
+        case (bytes_str === 1 || bytes_str === 2 || bytes_str === 3):
             return (bytes).toPrecision(numDig) + 'B';
-        case (bytes_str === 4):
-        case (bytes_str === 5):
-        case (bytes_str === 6):
+        case (bytes_str === 4 || bytes_str === 5 || bytes_str === 6):
             return (bytes / 1000).toPrecision(numDig) + 'KB';
-        case (bytes_str === 7):
-        case (bytes_str === 8):
-        case (bytes_str === 9):
+        case (bytes_str === 7 || bytes_str === 8 || bytes_str === 9):
             return (bytes / 1000000).toPrecision(numDig) + 'MB';
-        case (bytes_str === 10):
-        case (bytes_str === 11):
-        case (bytes_str === 12):
+        case (bytes_str === 10 || bytes_str === 11 || bytes_str === 12):
             return (bytes / 1000000000).toPrecision(numDig) + 'GB';
-        case (bytes_str === 13):
-        case (bytes_str === 14):
-        case (bytes_str === 15):
+        case (bytes_str === 13 || bytes_str === 14 || bytes_str === 15):
             return (bytes / 1000000000000).toPrecision(numDig) + 'TB';
-        case (bytes_str === 16):
-        case (bytes_str === 17):
-        case (bytes_str === 18):
+        case (bytes_str === 16 || bytes_str === 17 || bytes_str === 18):
             return (bytes / 1000000000000000).toPrecision(numDig) + 'PB';
-        case (bytes_str === 19):
-        case (bytes_str === 20):
-        case (bytes_str === 21):
+        case (bytes_str === 19 || bytes_str === 20 || bytes_str === 21):
             return (bytes / 1000000000000000000).toPrecision(numDig) + 'EB';
-        case (bytes_str === 22):
-        case (bytes_str === 23):
-        case (bytes_str === 24):
+        case (bytes_str === 22 || bytes_str === 23 || bytes_str === 24):
             return (bytes / 1000000000000000000000).toPrecision(numDig) + 'YB';
         default:
             bytes;
