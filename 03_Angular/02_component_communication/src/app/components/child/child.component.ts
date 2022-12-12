@@ -23,12 +23,12 @@ export class ChildComponent implements OnInit, OnDestroy {
 
     this.messageSubscription = this._service1.messageForEmit$.subscribe(texto => {
       this.message = texto;
-    })
-  }
+    });
+  };
 
   ngOnDestroy(): void {
     this.messageSubscription.unsubscribe();
-  }
+  };
 
   constructor(
     private _service1: Service1Service
@@ -36,13 +36,13 @@ export class ChildComponent implements OnInit, OnDestroy {
 
   emitMessage() { //Output
     this.messageOutput.emit('CHILD USING OUTPUT EVENT');
-  }
+  };
 
   useServiceChild() { //Service
     this._service1.messageServiceParent.message2 = 'CHILD USING SERVICE';
-  }
+  };
 
   showMessageInParentObservable() { //Observable
     this._service1.messageForEmit2$.emit('CHILD USING SUBJECT')
-  }
-}
+  };
+};

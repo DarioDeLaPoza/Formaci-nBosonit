@@ -39,7 +39,7 @@ export class ParentComponent implements OnInit, OnDestroy {
   };
 
   useServiceParent(): void {  // Service
-    this.message = new String('PARENT USING SERVICE');
+    this._service1.messageServiceChild.message = new String('PARENT USING SERVICE');
   };
 
   showMessageInChildObservable() { // Observable
