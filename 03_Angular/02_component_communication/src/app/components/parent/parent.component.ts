@@ -31,7 +31,7 @@ export class ParentComponent implements OnInit, OnDestroy {
   };
 
   showMessage(): void { // Message for Child
-    this.message = 'PARENT USING INPUT PROPERTY';
+    this.message = new String('PARENT USING INPUT PROPERTY');
   };
 
   setMessageOfChild(message: string): void { // Set message of child
